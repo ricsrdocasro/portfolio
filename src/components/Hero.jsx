@@ -1,5 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
 import foto from "../assets/foto3.png"
+import { motion } from "framer-motion";
 
 const Hero = () => {
     return (
@@ -21,7 +22,22 @@ const Hero = () => {
                             />
                         </div>
                         <span className="pb-16 pl-16 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent">
-                            Engenheiro eletrônico
+                        <TypeAnimation
+                                sequence={[
+                                    // Same substring at the start will only be typed out once, initially
+                                    'Engenheiro eletrônico',
+                                    2000,
+                                    'Entusiasta de tecnologia',
+                                    1000,
+                                    'Produtor musical amador',
+                                    1000,
+                                    'Não barista',
+                                    1000
+                                ]}
+                                wrapper="span"
+                                speed={50}
+                                repeat={Infinity}
+                            />
                         </span>
                         <p className="pb-16 pl-16 font-light tracking-tighter justify-text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et mauris vitae neque interdum sollicitudin. Pellentesque tempus ultricies arcu nec posuere. Ut dolor lectus, luctus in vehicula in, rhoncus sit amet dolor. Sed ligula sapien, lobortis quis felis quis, hendrerit sagittis arcu. Aliquam feugiat condimentum tempor. Duis semper massa eu tellus accumsan, sed accumsan ipsum viverra. Nam sit amet nulla est. Aliquam luctus, lectus nec bibendum sodales, ipsum urna ullamcorper urna, sit amet elementum mauris nulla id nisi. Vivamus feugiat orci vitae placerat rhoncus. Nam eu mi euismod, accumsan turpis sit amet, faucibus mauris. Vestibulum tempor at leo vitae tempus. Donec mauris sapien, varius a neque in, tincidunt eleifend enim. Vestibulum pretium mi quis ultricies venenatis.
@@ -30,7 +46,18 @@ const Hero = () => {
                 </div>
                 <div className="w-full lg:w-1/2 lg:p-8">
                     <div className="flex justify-center">
-                        <img alt="daisy" src={ foto } className="rounded-lg transition hover:scale-110 hover:blur-sm" />
+                        <motion.img 
+                            initial={{ y: -10, filter: 'drop-shadow(0 0 0.75rem rgb(0,0,0)' }}
+                            animate={{ y: 10 }}
+                            transition={{
+                              type: "smooth",
+                              repeatType: "mirror",
+                              duration: 2,
+                              repeat: Infinity,
+                            }}
+                            alt="daisy" 
+                            src={ foto } 
+                            className="rounded-lg" />
                     </div>
                 </div>
             </div>

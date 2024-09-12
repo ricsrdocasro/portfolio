@@ -4,6 +4,8 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import Academics from './components/Academics'
+import Contact from './components/Contact'
+import Hobbies from './components/Hobbies'
 
 const App = () => {
   return (
@@ -19,6 +21,10 @@ const App = () => {
         <About />
         <Projects />
         <Academics />
+        <Hobbies />
+        <Contact />
+
+        
       </div>  
       
     </div>
