@@ -34,7 +34,7 @@ const Hero = () => {
 
     return (
         <div className="border-b border-neutral-900 pb-4 lg:mb-35 pt-10 lg:pt-0">
-            <div className="flex flex-col lg:flex-row items-center">
+            <div className="flex flex-col lg:flex-row items-center justify-between w-full">
                 <div className="w-full lg:w-1/2 order-2 lg:order-1">
                     <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                         <div className="pb-8 lg:pb-16 text-4xl font-thin tracking-tight lg:mt-16 lg:text-6xl">
