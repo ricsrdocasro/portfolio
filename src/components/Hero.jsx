@@ -33,7 +33,7 @@ const Hero = () => {
 
 
     return (
-        <div className="border-b border-neutral-900 pb-4 lg:mb-35 pt-10 lg:pt-0">
+        <div className="border-b border-neutral-900 pb-4 lg:mb-35 pt-10 lg:pt-0 w-full">
             <div className="flex flex-col lg:flex-row items-center justify-between w-full">
                 <div className="w-full lg:w-1/2 order-2 lg:order-1">
                     <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
