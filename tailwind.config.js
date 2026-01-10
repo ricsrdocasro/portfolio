@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'], // Set Montserrat as default sans
+        inter: ['Inter', 'sans-serif'], // Keep Inter available for Navbar
+      },
     },
   },
   plugins: [

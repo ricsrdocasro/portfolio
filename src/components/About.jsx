@@ -1,23 +1,42 @@
 import React from 'react';
 import foto from '../assets/foto3.png';
+import { useLanguage } from "../context/LanguageContext";
 
 const About = () => {
+    const { content } = useLanguage();
     return (
-        <div className="border-b border-neutral-900 pb-4">
+        <div id="about" className="border-b border-neutral-900 pb-4">
             <h2 className="my-20 text-center text-4xl">
-                Sobre mim
+                {content.about.title}
             </h2>
-            <div className="flex flex-wrap">
-                <div className="w-full lg:w-1/2 lg:p-8">
+            <div className="flex flex-col lg:flex-row items-center">
+                <div className="w-full lg:w-1/2 lg:p-8 mb-8 lg:mb-0">
                     <div className="flex items-center justify-center">
-                        <img className="rounded-2xl" src={foto} alt="foto" />
+                        <img className="rounded-2xl max-w-[300px] lg:max-w-full" src={foto} alt="foto" />
                     </div>
                 </div>
-                <div className="w-full lg:w-1/2">
-                    <div className="flex justify-center lg:justify-start">
+                <div className="w-full lg:w-1/2 px-4 lg:px-0">
+                    <div className="flex justify-center lg:justify-start text-center lg:text-left">
                         <p className="my-2 max-w-xl py-6">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et mauris vitae neque interdum sollicitudin. Pellentesque tempus ultricies arcu nec posuere. Ut dolor lectus, luctus in vehicula in, rhoncus sit amet dolor. Sed ligula sapien, lobortis quis felis quis, hendrerit sagittis arcu. Aliquam feugiat condimentum tempor. Duis semper massa eu tellus accumsan, sed accumsan ipsum viverra. Nam sit amet nulla est. Aliquam luctus, lectus nec bibendum sodales, ipsum urna ullamcorper urna, sit amet elementum mauris nulla id nisi. Vivamus feugiat orci vitae placerat rhoncus. Nam eu mi euismod, accumsan turpis sit amet, faucibus mauris. Vestibulum tempor at leo vitae tempus. Donec mauris sapien, varius a neque in, tincidunt eleifend enim. Vestibulum pretium mi quis ultricies venenatis.
+                            {content.about.description}
                         </p>
+                    </div>
+                    {/* Render Experience here if not elsewhere */}
+                    <div className="flex justify-center lg:justify-start mt-4">
+                        <div className="max-w-xl">
+                            <h3 className="text-xl font-bold mb-2">{content.experience.title}</h3>
+                            {content.experience.list.map((exp, index) => (
+                                <div key={index} className="mb-4">
+                                    <h4 className="font-semibold">{exp.role}</h4>
+                                    <p className="text-sm text-neutral-400">{exp.description}</p>
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {exp.technologies.map((tech, idx) => (
+                                            <span key={idx} className="bg-neutral-800 text-purple-300 text-xs px-2 py-1 rounded">{tech}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
