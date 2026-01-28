@@ -1,36 +1,22 @@
-import { useState, useMemo } from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
 import { useLanguage } from "../context/LanguageContext";
 import MorphingAsset from "./canvas/MorphingAsset";
+import ScrambleText from "./ScrambleText";
 
 const Hero = () => {
     const { content } = useLanguage();
-    const [currentRole, setCurrentRole] = useState(content.hero.titles[0]);
-    
-    // Construct sequence with callbacks: [title1, 1000, () => setRole(title2), title2, 1000, ...]
-    // Note: The callback runs AFTER the wait time, so we set the NEXT role or the CURRENT one?
-    // Actually, TypeAnimation callbacks in sequence run at that point.
-    // Let's try: [title1, 1000, () => setCurrentRole(title2), title2, ...]
-    // Better strategy: simply update the role when the typing starts for that role? 
-    // TypeAnimation sequence is strictly linear.
-    
-    const titlesSequence = useMemo(() => {
-        const seq = [];
-        const titles = content.hero.titles;
-        
-        titles.forEach((title, index) => {
-           seq.push(title);
-           seq.push(2000); // Wait 2s
-           // Callback to switch state for the NEXT title (or loop back to first)
-           seq.push(() => {
-               const nextIndex = (index + 1) % titles.length;
-               setCurrentRole(titles[nextIndex]);
-           });
-        });
-        return seq;
-    }, [content.hero.titles]);
+    const [roleIndex, setRoleIndex] = useState(0);
 
+    const titles = content.hero.titles;
+    const currentRole = titles[roleIndex % titles.length];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setRoleIndex((prev) => (prev + 1) % titles.length);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, [titles.length]);
 
     return (
         <div className="border-b border-neutral-900 pb-4 lg:mb-35 pt-10 lg:pt-0 w-full">
@@ -41,13 +27,7 @@ const Hero = () => {
                              <span style={{ display: 'inline-block' }}>Ricardo de Castro</span>
                         </div>
                         <span className="pb-8 lg:pb-16 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-2xl lg:text-4xl tracking-tight text-transparent min-h-[60px] lg:min-h-[100px]">
-                        <TypeAnimation
-                                key={content.hero.titles[0]} // Force re-render on language change
-                                sequence={titlesSequence}
-                                wrapper="span"
-                                speed={50}
-                                repeat={Infinity}
-                            />
+                            <ScrambleText text={currentRole} className="" />
                         </span>
                         <p className="pb-8 lg:pb-16 font-light tracking-tighter max-w-xl mx-auto lg:mx-0 px-4 lg:px-0 text-sm lg:text-base leading-relaxed">
                             {content.hero.description}

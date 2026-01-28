@@ -21,10 +21,8 @@ export const RESOURCES = {
     hero: {
       titles: [
         "Engenheiro Eletrônico",
-        "Desenvolvedor Full Stack",
-        "Entusiasta de IoT",
-        "Produtor Musical Amador",
-        "Entusiasta de Café"
+        "Pesquisador em Sistemas Embarcados",
+        "Desenvolvedor de Soluções IoT"
       ],
       description: "Engenheiro Eletrônico e Desenvolvedor Full Stack apaixonado por criar soluções que conectam o mundo físico ao digital. Com experiência sólida em IoT, Cidades Inteligentes e desenvolvimento de software robusto, busco sempre inovação e eficiência."
     },
@@ -36,16 +34,16 @@ export const RESOURCES = {
       title: "Projetos",
       list: [
         {
-          title: "ESP32 IR Universal Remote",
-          description: "Um sistema que permite ao ESP32 capturar e replicar sinais infravermelhos de vários controles remotos, integrando uma interface de usuário em display OLED.",
-          technologies: ["C++", "ESP32", "Arduino-IRremote", "OLED"],
-          github: "https://github.com/ricsrdocasro/ESP32-Universal-IR-Controller"
-        },
-        {
           title: "Osciloscópio Digital em FPGA",
           description: "Osciloscópio digital em tempo real desenvolvido em uma FPGA Intel DE10-Lite. Captura sinais analógicos e exibe a forma de onda via saída VGA 640x480.",
           technologies: ["VHDL", "FPGA", "Digital Electronics", "VGA"],
           github: "https://github.com/ricsrdocasro/FPGA-Oscilloscope"
+        },
+        {
+          title: "ESP32 IR Universal Remote",
+          description: "Um sistema que permite ao ESP32 capturar e replicar sinais infravermelhos de vários controles remotos, integrando uma interface de usuário em display OLED.",
+          technologies: ["C++", "ESP32", "Arduino-IRremote", "OLED"],
+          github: "https://github.com/ricsrdocasro/ESP32-Universal-IR-Controller"
         },
         {
           title: "selection_marquee",
@@ -198,10 +196,8 @@ export const RESOURCES = {
     hero: {
       titles: [
         "Electronics Engineer",
-        "Full Stack Developer",
-        "IoT Enthusiast",
-        "Amateur Music Producer",
-        "Coffee Connoisseur"
+        "Embedded Systems Researcher",
+        "IoT Solutions Developer"
       ],
       description: "Electronics Engineer and Full Stack Developer passionate about creating solutions that connect the physical world to the digital. With solid experience in IoT, Smart Cities, and robust software development, I always strive for innovation and efficiency."
     },
@@ -213,16 +209,16 @@ export const RESOURCES = {
       title: "Projects",
       list: [
         {
-          title: "ESP32 IR Universal Remote",
-          description: "A system that enables an ESP32 to capture and replicate IR signals from various remotes, integrating an OLED display user interface.",
-          technologies: ["C++", "ESP32", "Arduino-IRremote", "OLED"],
-          github: "https://github.com/ricsrdocasro/ESP32-Universal-IR-Controller"
-        },
-        {
           title: "FPGA-Based Digital Oscilloscope",
           description: "Real-time digital oscilloscope developed on an Intel DE10-Lite FPGA. Captures analog signals and displays the waveform via 640x480 VGA output.",
           technologies: ["VHDL", "FPGA", "Digital Electronics", "VGA"],
           github: "https://github.com/ricsrdocasro/FPGA-Oscilloscope"
+        },
+        {
+          title: "ESP32 IR Universal Remote",
+          description: "A system that enables an ESP32 to capture and replicate IR signals from various remotes, integrating an OLED display user interface.",
+          technologies: ["C++", "ESP32", "Arduino-IRremote", "OLED"],
+          github: "https://github.com/ricsrdocasro/ESP32-Universal-IR-Controller"
         },
         {
           title: "selection_marquee",

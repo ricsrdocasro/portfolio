@@ -10,6 +10,7 @@ import laptopUrl from "../../assets/laptop.glb";
 import satelliteUrl from "../../assets/satellite.glb";
 import speakerUrl from "../../assets/speakers.glb";
 import coffeeUrl from "../../assets/coffee_shop_cup.glb";
+import icUrl from "../../assets/integrated_circuit_ic.glb";
 
 // ... hologramMaterial definition ...
 const hologramMaterial = new THREE.MeshPhysicalMaterial({
@@ -53,15 +54,17 @@ const Laptop = () => <HolographicModel url={laptopUrl} scale={0.13} rotation={[0
 const Satellite = () => <HolographicModel url={satelliteUrl} scale={0.15} rotation={[0.2, 0.2, 0]} />;
 const Speaker = () => <HolographicModel url={speakerUrl} scale={1} rotation={[0, -0.5, 0]} />;
 const Coffee = () => <HolographicModel url={coffeeUrl} scale={2} rotation={[0, 0.5, -0.7]} />;
+const IC = () => <HolographicModel url={icUrl} scale={0.5} rotation={[0.5, 0.5, 0.5]} />;
 
 const MorphingAsset = ({ role }) => {
   let AssetComponent = TechGeometry; // Default Fallback
 
   const r = role?.toLowerCase() || "";
 
-  if (r.includes("eletr") || r.includes("electro")) AssetComponent = Chip;
+  if (r.includes("iot") || r.includes("smart")) AssetComponent = Satellite;
+  else if (r.includes("embedded") || r.includes("embarcad")) AssetComponent = IC;
+  else if (r.includes("eletr") || r.includes("electro")) AssetComponent = Chip;
   else if (r.includes("dev") || r.includes("stack")) AssetComponent = Laptop;
-  else if (r.includes("iot") || r.includes("smart")) AssetComponent = Satellite;
   else if (r.includes("music") || r.includes("músic") || r.includes("produtor")) AssetComponent = Speaker;
   else if (r.includes("caf") || r.includes("coffee")) AssetComponent = Coffee;
 
@@ -86,5 +89,6 @@ useGLTF.preload(laptopUrl);
 useGLTF.preload(satelliteUrl);
 useGLTF.preload(speakerUrl);
 useGLTF.preload(coffeeUrl);
+useGLTF.preload(icUrl);
 
 export default MorphingAsset;
